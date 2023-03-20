@@ -1,9 +1,21 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+const messages = [
+  {
+    text: 'Hello there!',
+    user: 'Maisy',
+    added: new Date().toLocaleDateString(),
+  },
+  {
+    text: 'Do project',
+    user: 'Virag',
+    added: new Date().toLocaleDateString(),
+  },
+];
+
+router.get('/', function (req, res, next) {
+  res.render('index', { title: 'Mini Message Board', messages });
 });
 
 module.exports = router;
