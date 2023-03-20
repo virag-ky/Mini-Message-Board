@@ -6,7 +6,7 @@
 
 ## Built with:
 * Express generator
-* Jade
+* Jade/Pug
 * MongoDB/Mongoose
 * CSS
 
@@ -18,6 +18,7 @@
 
 ### To clone this repo:
 ```
+git clone git@github.com:virag-ky/Mini-Message-Board.git
 ```
 
 ### To install all the dependencies:
