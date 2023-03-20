@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Message = require('../models/Message');
 
+let errorMsg = '';
+
 // Get all messages
 router.get('/', async (req, res) => {
   const messages = await Message.find({});
@@ -15,12 +17,17 @@ router.get('/new', (req, res) => {
 
 // Create new message
 router.post('/new', async (req, res) => {
-  const { text, user } = req.body;
+  try {
+    const { text, user } = req.body;
 
-  const newMessage = new Message({ text, user });
-  await newMessage.save();
+    const newMessage = new Message({ text, user });
+    await newMessage.save();
 
-  res.redirect('/');
+    res.redirect('/');
+  } catch (err) {
+    errorMsg = err.message;
+    res.render('form', { errorMsg });
+  }
 });
 
 module.exports = router;

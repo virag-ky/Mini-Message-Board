@@ -2,9 +2,21 @@ extends layout
 
 block content
   h1= title
+  a(href="/new") ADD NEW 
   div#container
     each val in messages 
-      div.message
+      if messages.indexOf(val) % 2 === 0
+       div.messageBlue.message
         p Message: #{val.text} 
         span User: #{val.user}
         span Added: #{val.added.toLocaleDateString()}
+      else if messages.indexOf(val) % 3 === 0
+         div.messagePink.message
+          p Message: #{val.text} 
+          span User: #{val.user}
+          span Added: #{val.added.toLocaleDateString()}
+      else 
+        div.messageGreen.message
+          p Message: #{val.text} 
+          span User: #{val.user}
+          span Added: #{val.added.toLocaleDateString()}
