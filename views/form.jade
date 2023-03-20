@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    h2 ADD A NEW MESSAGE
+    form(action="/new", method='POST') 
+     label(for="text") Message:
+     input(type="text", id='text' name='text' required)
+     label(for="user") User: 
+     input(type="text" id='user' name='user' required)
+     button(type='submit') Submit
